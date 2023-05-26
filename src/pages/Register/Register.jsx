@@ -38,9 +38,22 @@ const Register = () => {
             onChange={handleRegisterData}
             name="photoURL"
             type="text"
+            value={registerData.photoURL}
           />
           <Form.Text className="text-danger">{errors.photoURL}</Form.Text>
         </Form.Group>
+        {registerData.photoURL.trim() !== "" && (
+          <>
+            <p>Image Preview: </p>
+            <img
+              className="photoURL"
+              src={registerData.photoURL}
+              alt="Image Preview"
+            />
+            <br />
+            <br />
+          </>
+        )}
 
         <Form.Group className="mb-3" controlId="emailAddress">
           <Form.Label>Email address</Form.Label>
@@ -48,6 +61,7 @@ const Register = () => {
             onChange={handleRegisterData}
             name="email"
             type="email"
+            value={registerData.email}
           />
           <Form.Text className="text-danger">{errors.email}</Form.Text>
         </Form.Group>
@@ -58,6 +72,7 @@ const Register = () => {
             onChange={handleRegisterData}
             name="password"
             type="password"
+            value={registerData.password}
           />
           <Form.Text className="text-danger">{errors.password}</Form.Text>
         </Form.Group>
@@ -67,6 +82,7 @@ const Register = () => {
             onChange={handleRegisterData}
             name="confirmPassword"
             type="password"
+            value={registerData.confirmPassword}
           />
           <Form.Text className="text-danger">
             {errors.confirmPassword}

@@ -19,7 +19,7 @@ const useRegister = () => {
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
         registerData.email
       ) &&
-      registerData.email !== ""
+      registerData.email.trim() !== ""
     ) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -36,7 +36,7 @@ const useRegister = () => {
   useEffect(() => {
     if (
       !/^.{6,}$/.test(registerData.password) &&
-      registerData.password !== "" &&
+      registerData.password.trim() !== "" &&
       registerData.confirmPassword !== ""
     ) {
       setErrors((prevErrors) => ({
@@ -46,8 +46,8 @@ const useRegister = () => {
     } else {
       if (
         registerData.password !== registerData.confirmPassword &&
-        registerData.password !== "" &&
-        registerData.confirmPassword !== ""
+        registerData.password.trim() !== "" &&
+        registerData.confirmPassword.trim() !== ""
       ) {
         setErrors((prevErrors) => ({
           ...prevErrors,
@@ -77,30 +77,30 @@ const useRegister = () => {
   const registerUser = (event) => {
     event.preventDefault();
     // check empty fields
-    if (registerData.email === "") {
+    if (registerData.email.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
         email: "Email can't be empty",
       }));
     }
-    if (registerData.password === "") {
+    if (registerData.password.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        password: "Password can't be empty",
+        password: "Password can't be empty or contain space only",
       }));
     }
-    if (registerData.confirmPassword === "") {
+    if (registerData.confirmPassword.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        confirmPassword: "Password can't be empty",
+        confirmPassword: "Password can't be empty or contain space only",
       }));
     }
 
     // register use if there is no error.
     else if (
-      registerData.email !== "" &&
-      registerData.password !== "" &&
-      registerData.confirmPassword !== "" &&
+      registerData.email.trim() !== "" &&
+      registerData.password.trim() !== "" &&
+      registerData.confirmPassword.trim() !== "" &&
       Object.values(errors).every((error) => error === "")
     ) {
       console.log("test");

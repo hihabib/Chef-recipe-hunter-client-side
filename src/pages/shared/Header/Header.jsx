@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import classes from "./Header.module.css";
 import userIcon from "../../../assets/user.svg";
 const Header = () => {
   const { user, logout, loading } = useAuth();
@@ -51,14 +50,14 @@ const Header = () => {
                       <img
                         ref={ref}
                         {...triggerHandler}
-                        className={`${classes.photoURL} ms-auto`}
+                        className={`photoURL ms-auto`}
                         src={user.photoURL || userIcon}
                       />
                     )}
                   </OverlayTrigger>
                 ) : (
                   <img
-                    className={`${classes.photoURL} ms-auto`}
+                    className={`photoURL ms-auto`}
                     src={user.photoURL || userIcon}
                   />
                 )
