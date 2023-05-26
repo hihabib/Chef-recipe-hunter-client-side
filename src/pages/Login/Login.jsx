@@ -1,12 +1,14 @@
 import { Button, Card, Container, Form } from "react-bootstrap";
 import googleIcon from "../../assets/google.png";
-import useLogin from "./hooks/useLogin";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../shared/Loading/Loading";
 import { Navigate } from "react-router-dom";
+import useSignInWith from "../../hooks/useSignInWith";
 const Login = () => {
+  const signInWith = useSignInWith();
+
+  // Loading and redirection
   const { loading, user } = useAuth();
-  const { signInWith } = useLogin();
 
   if (loading) {
     return <Loading />;
@@ -19,20 +21,20 @@ const Login = () => {
     <>
       <Container>
         <Form className="w-25 mx-auto mt-5">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="emailAddress">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" />
             <Form.Text className="text-muted">
               We&apos;ll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" />
           </Form.Group>
-          <Button variant="danger" type="submit">
-            Submit
+          <Button variant="danger" className="w-100" type="submit">
+            Login
           </Button>
         </Form>
         <Card className="w-25 mx-auto mt-3">
