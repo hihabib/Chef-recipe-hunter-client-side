@@ -1,14 +1,19 @@
-import { Button, Card, Container, Form } from "react-bootstrap";
+import { Alert, Button, Card, Container, Form } from "react-bootstrap";
 import googleIcon from "../../assets/google.png";
+import githubIcon from "../../assets/github.png";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../shared/Loading/Loading";
 import { Navigate } from "react-router-dom";
-import useSignInWith from "../../hooks/useSignInWith";
 const Login = () => {
-  const signInWith = useSignInWith();
-
   // Loading and redirection
-  const { loading, user } = useAuth();
+  const {
+    loading,
+    user,
+    authErrors,
+    signInWithGoogle,
+    removeAuthErrors,
+    signInWithGithub,
+  } = useAuth();
 
   if (loading) {
     return <Loading />;
@@ -21,6 +26,11 @@ const Login = () => {
     <>
       <Container>
         <Form className="w-25 mx-auto mt-5">
+          {authErrors && (
+            <Alert variant="danger" onClose={removeAuthErrors} dismissible>
+              <span>{authErrors}</span>
+            </Alert>
+          )}
           <Form.Group className="mb-3" controlId="emailAddress">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" />
@@ -39,13 +49,25 @@ const Login = () => {
         </Form>
         <Card className="w-25 mx-auto mt-3">
           <Card.Body
-            onClick={() => signInWith("google")}
+            onClick={signInWithGoogle}
             className="p-3"
             style={{ cursor: "pointer" }}
           >
             <img className="loginIcon" src={googleIcon} alt="Icon" />
             <span className="w-100 text-center d-inline-block">
               Continue With Google
+            </span>
+          </Card.Body>
+        </Card>
+        <Card className="w-25 mx-auto mt-3">
+          <Card.Body
+            onClick={() => signInWithGithub()}
+            className="p-3"
+            style={{ cursor: "pointer" }}
+          >
+            <img className="loginIcon" src={githubIcon} alt="Icon" />
+            <span className="w-100 text-center d-inline-block">
+              Continue With Github
             </span>
           </Card.Body>
         </Card>

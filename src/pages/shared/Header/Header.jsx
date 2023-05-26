@@ -1,16 +1,18 @@
 import {
+  Button,
   Container,
   Nav,
   Navbar,
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import classes from "./Header.module.css";
+import userIcon from "../../../assets/user.svg";
 const Header = () => {
   const { user, logout, loading } = useAuth();
-
+  const navigate = useNavigate();
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -50,21 +52,21 @@ const Header = () => {
                         ref={ref}
                         {...triggerHandler}
                         className={`${classes.photoURL} ms-auto`}
-                        src={user.photoURL}
+                        src={user.photoURL || userIcon}
                       />
                     )}
                   </OverlayTrigger>
                 ) : (
                   <img
                     className={`${classes.photoURL} ms-auto`}
-                    src={user.photoURL}
+                    src={user.photoURL || userIcon}
                   />
                 )
               ) : (
                 <Nav className="ms-auto">
-                  <Link className="nav-link" to="/login">
+                  <Button variant="dark" onClick={() => navigate("/login")}>
                     Login
-                  </Link>
+                  </Button>
                 </Nav>
               )}
             </>
