@@ -1,0 +1,10 @@
+nav {
+  z-index: 100;
+  position: relative;
+}
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.brand {
+  color: var(--primary);
+}

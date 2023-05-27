@@ -4,6 +4,7 @@ import githubIcon from "../../assets/github.png";
 import useAuth from "../../hooks/useAuth";
 import Loading from "../shared/Loading/Loading";
 import { Navigate } from "react-router-dom";
+import Hero from "../shared/Hero/Hero";
 const Login = () => {
   // Loading and redirection
   const {
@@ -24,6 +25,7 @@ const Login = () => {
 
   return (
     <>
+      <Hero>Login</Hero>
       <Container>
         <Form className="w-25 mx-auto mt-5">
           {authErrors && (

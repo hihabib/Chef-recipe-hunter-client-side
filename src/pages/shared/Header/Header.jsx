@@ -9,14 +9,15 @@ import {
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import userIcon from "../../../assets/user.svg";
+import classes from "./Header.module.css";
 const Header = () => {
   const { user, logout, loading } = useAuth();
   const navigate = useNavigate();
   return (
-    <>
-      <Navbar bg="dark" variant="dark">
+    <header>
+      <Navbar className={`${classes.navbar} py-4`} variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Chef Recipe Hunter</Navbar.Brand>
+          <Navbar.Brand className={classes.brand} href="#home">Chef Recipe Hunter</Navbar.Brand>
           <Nav className="mx-auto">
             <Link to="/" className="nav-link">
               Home
@@ -75,7 +76,7 @@ const Header = () => {
       <div>
         <Outlet />
       </div>
-    </>
+    </header>
   );
 };
 
