@@ -6,7 +6,7 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import userIcon from "../../../assets/user.svg";
 import classes from "./Header.module.css";
@@ -17,7 +17,9 @@ const Header = () => {
     <header>
       <Navbar className={`${classes.navbar} py-4`} variant="dark">
         <Container>
-          <Navbar.Brand className={classes.brand} href="#home">Chef Recipe Hunter</Navbar.Brand>
+          <Navbar.Brand className={classes.brand} href="#home">
+            Chef Recipe Hunter
+          </Navbar.Brand>
           <Nav className="mx-auto">
             <Link to="/" className="nav-link">
               Home
@@ -73,9 +75,6 @@ const Header = () => {
           )}
         </Container>
       </Navbar>
-      <div>
-        <Outlet />
-      </div>
     </header>
   );
 };

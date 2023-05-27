@@ -3,13 +3,18 @@ import banner from "../../assets/home-page-banner.jpg";
 import classes from "./Home.module.css";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [chefs, setChefs] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("http://localhost:3800/api/v1/chefs")
       .then((res) => res.json())
       .then((chefs) => setChefs(chefs));
   }, []);
+  const handleViewRecipe = (chef) => {
+    navigate(`/chef-recipe/${chef._id}`);
+  };
   return (
     <>
       <section>
@@ -54,7 +59,13 @@ const Home = () => {
                           Likes: {chef.likes}
                         </li>
                       </ul>
-                      <Button variant="warning" className="mt-4">View Recipe</Button>
+                      <Button
+                        onClick={() => handleViewRecipe(chef)}
+                        variant="warning"
+                        className="mt-4"
+                      >
+                        View Recipe
+                      </Button>
                     </div>
                   </Card.Body>
                 </Card>

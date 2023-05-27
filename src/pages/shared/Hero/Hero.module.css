@@ -1,4 +1,4 @@
-.hero img {
+.hero > img {
   position: absolute;
   top: 0;
   margin-top: -250px;
@@ -6,7 +6,7 @@
 .hero {
   margin-bottom: 150px;
 }
-.hero > div {
+.hero > .title {
   z-index: 10;
   position: relative;
   color: white;
@@ -14,5 +14,12 @@
   font-size: 50px;
   text-align: center;
   padding-top: 50px;
+  text-shadow: 0 0 30px rgb(60, 60, 60), 0 0 30px rgb(60, 60, 60);
+}
+
+.hero > .elements {
+  z-index: 10;
+  position: relative;
+  color: white;
   text-shadow: 0 0 30px rgb(60, 60, 60), 0 0 30px rgb(60, 60, 60);
 }

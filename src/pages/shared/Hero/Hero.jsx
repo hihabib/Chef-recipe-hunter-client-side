@@ -1,11 +1,14 @@
 import classes from "./Hero.module.css";
 import heroImage from "../../../assets/hero.jpg";
-const Hero = ({ children }) => {
+const Hero = ({ children, image = heroImage, style, element }) => {
   return (
-    <div className={classes.hero}>
-      <img src={heroImage} alt="Hero Banner" />
-      <div>{children}</div>
-    </div>
+    <section className={classes.hero}>
+      <img style={style} src={image} alt="Hero Banner" />
+
+      <div className={element ? classes.elements : classes.title}>
+        <div>{children}</div>
+      </div>
+    </section>
   );
 };
 
