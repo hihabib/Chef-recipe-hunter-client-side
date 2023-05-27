@@ -6,7 +6,7 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import userIcon from "../../../assets/user.svg";
 import classes from "./Header.module.css";
@@ -21,16 +21,26 @@ const Header = () => {
             Chef Recipe Hunter
           </Navbar.Brand>
           <Nav className="mx-auto">
-            <Link to="/" className="nav-link">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? `nav-link ${classes.active}` : "nav-link"
+              }
+              to="/"
+            >
               Home
-            </Link>
+            </NavLink>
             {!loading && (
               <>
                 {!user ? (
                   <>
-                    <Link className="nav-link" to="/register">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? `nav-link ${classes.active}` : "nav-link"
+                      }
+                      to="/register"
+                    >
                       Registration
-                    </Link>
+                    </NavLink>
                   </>
                 ) : (
                   <Nav.Link onClick={logout}>Logout</Nav.Link>

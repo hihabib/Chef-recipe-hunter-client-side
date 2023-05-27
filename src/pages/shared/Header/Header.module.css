@@ -8,3 +8,6 @@ nav {
 .brand {
   color: var(--primary);
 }
+.active {
+  color: var(--primary) !important;
+}

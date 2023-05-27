@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Hero from "../shared/Hero/Hero";
 import classes from "./ChefRecipe.module.css";
 import {
@@ -8,6 +8,7 @@ import {
   Col,
   Container,
   Row,
+  Spinner,
   Toast,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,9 +50,16 @@ const ChefRecipe = () => {
     setToast(true);
   };
 
-  if (!chef) {
-    return <Navigate to="/" />;
+  if (!recipes.length) {
+    return (
+      <div className="p-5 m-5 d-flex justify-content-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
+
   return (
     <>
       <div className={classes.toastMessage}>
@@ -118,14 +126,11 @@ const ChefRecipe = () => {
                       </Card.Title>
                       <div className={classes.favButtonContainer}>
                         <Button
+                          disabled={recipe.isFavourite}
                           variant="danger"
                           onClick={() => handleFavouriteButton(recipe._id)}
                         >
-                          {!recipe.isFavourite ? (
-                            <FontAwesomeIcon icon="fa-regular fa-heart" />
-                          ) : (
-                            <FontAwesomeIcon icon="fa-solid fa-heart" />
-                          )}
+                          <FontAwesomeIcon icon="fa-regular fa-heart" />
                         </Button>
                       </div>
                     </div>
