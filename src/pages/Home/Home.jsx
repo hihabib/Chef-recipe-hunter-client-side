@@ -82,6 +82,21 @@ const Home = () => {
           </Container>
         )}
       </section>
+      <section className={`${classes.newLetter} bg-dark text-light py-5}`}>
+        <Container className="py-5 mt-5">
+          <h2 className="text-center mb-5">
+            Subscribe us to get all updates via Email
+          </h2>
+          <input
+            type="email"
+            className="w-100 p-3 border border-0 text-center"
+            placeholder="Enter Your Email Address"
+            name=""
+            id=""
+          />
+          <button className="w-100 py-3 bg-warning mt-3">Subscribe</button>
+        </Container>
+      </section>
     </>
   );
 };
