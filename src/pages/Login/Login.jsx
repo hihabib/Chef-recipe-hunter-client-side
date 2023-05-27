@@ -45,7 +45,7 @@ const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" />
           </Form.Group>
-          <Button variant="danger" className="w-100" type="submit">
+          <Button variant="warning" className="w-100" type="submit">
             Login
           </Button>
         </Form>

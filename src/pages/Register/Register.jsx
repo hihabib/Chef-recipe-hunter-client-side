@@ -92,7 +92,7 @@ const Register = () => {
               {errors.confirmPassword}
             </Form.Text>
           </Form.Group>
-          <Button variant="danger" className="w-100" type="submit">
+          <Button variant="warning" className="w-100" type="submit">
             Register
           </Button>
         </Form>

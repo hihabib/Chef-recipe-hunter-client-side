@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 :root {
   --primary: #f3c23d;
+  --lilita: "Lilita One", cursive;
 }
 
 .loginIcon {
@@ -15,4 +17,8 @@
 }
 img {
   max-width: 100%;
+}
+.btn.btn-warning {
+  background-color: var(--primary);
+  font-weight: 600;
 }

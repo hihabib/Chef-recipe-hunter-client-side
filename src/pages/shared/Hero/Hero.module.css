@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-
 .hero img {
   position: absolute;
   top: 0;
@@ -12,9 +10,9 @@
   z-index: 10;
   position: relative;
   color: white;
-  font-family: "Lilita One", cursive;
+  font-family: var(--lilita);
   font-size: 50px;
   text-align: center;
   padding-top: 50px;
-  text-shadow: 0 0 30px rgb(60, 60, 60),  0 0 30px rgb(60, 60, 60);
+  text-shadow: 0 0 30px rgb(60, 60, 60), 0 0 30px rgb(60, 60, 60);
 }

@@ -23,3 +23,36 @@
   height: 100vh;
   margin-top: -200px;
 }
+.chefs {
+  margin-top: 50px;
+}
+.chefs h1 {
+  text-align: center;
+}
+.chefs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.chefs ul > li svg {
+  margin-right: 10px;
+  display: inline-block;
+}
+.card {
+  border: none !important;
+}
+
+.cardImageContainer {
+  height: 262px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.cardTitle {
+  color: var(--primary);
+  font-family: var(--lilita);
+  margin: 20px 0;
+  font-size: 30px;
+}
