@@ -4,6 +4,7 @@ import classes from "./Home.module.css";
 import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+
 const Home = () => {
   const [chefs, setChefs] = useState([]);
   const navigate = useNavigate();
@@ -82,7 +83,42 @@ const Home = () => {
           </Container>
         )}
       </section>
-      <section className={`${classes.newLetter} bg-dark text-light py-5}`}>
+      <section className="my-5 py-5">
+        <Container>
+          <Row className="g-5" md={2}>
+            <Col className="text-center">
+              <h1>Little About Us</h1>
+              <p>THE HISTORY OF US</p>
+              <p>
+                Chef Recipe Hunter was founded in 2013 by two friends who were
+                passionate about food. The website allows users to find
+                world-class chefs and order their recipes. Chef Recipe Hunter
+                has quickly become a popular resource for home cooks who want to
+                learn from the best.
+              </p>
+            </Col>
+            <Col>
+              <div className="d-flex gap-5">
+                <img
+                  src="/images/recipe/1.jpg"
+                  className="rounded-circle"
+                  height={200}
+                  width={200}
+                  alt=""
+                />
+                <img
+                  src="/images/recipe/2.jpg"
+                  className="rounded-circle"
+                  height={200}
+                  width={200}
+                  alt=""
+                />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <section className={` bg-dark text-light py-5}`}>
         <Container className="py-5 mt-5">
           <h2 className="text-center mb-5">
             Subscribe us to get all updates via Email
