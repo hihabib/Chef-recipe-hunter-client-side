@@ -9,7 +9,9 @@ const Home = () => {
   const [chefs, setChefs] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:3800/api/v1/chefs")
+    fetch(
+      "https://chef-recipe-hunter-server-side-hihabib.vercel.app/api/v1/chefs"
+    )
       .then((res) => res.json())
       .then((chefs) => setChefs(chefs));
   }, []);

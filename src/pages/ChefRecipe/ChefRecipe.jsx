@@ -22,7 +22,9 @@ const ChefRecipe = () => {
 
   // get chef data
   useEffect(() => {
-    fetch(`http://localhost:3800/api/v1/chefs/${id}`)
+    fetch(
+      `https://chef-recipe-hunter-server-side-hihabib.vercel.app/api/v1/chefs/${id}`
+    )
       .then((res) => res.json())
       .then((chef) => setChef(chef));
   }, [id]);
@@ -30,7 +32,9 @@ const ChefRecipe = () => {
   // get recipes of chef
   useEffect(() => {
     if (chef._id) {
-      fetch(`http://localhost:3800/api/v1/recipes/${chef._id}`)
+      fetch(
+        `https://chef-recipe-hunter-server-side-hihabib.vercel.app/api/v1/recipes/${chef._id}`
+      )
         .then((res) => res.json())
         .then((recipes) => setRecipes(recipes));
     }
